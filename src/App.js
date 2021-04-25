@@ -27,7 +27,7 @@ const App = () => {
 
   const [directionSort, setDirectionSort] = useState(true)
 
-
+//search 
 const sortData = (field) => {
   const copyData = data.concat();
 
@@ -52,7 +52,7 @@ const sortData = (field) => {
     axios.get(baseUrl)
     .then (
       (res) => {
-        setData(res.data.records.splice(0, 100))  //temp splice 341
+        setData(res.data.records.splice(0, 100))  //temp splice 341 remove .splice to see all data
       }
     )
   },  [])
@@ -91,7 +91,7 @@ const sortData = (field) => {
   for(let i = 1; i <= totalCountPage; i++){
     pages.push(i)
   }
-  //buttons
+  //buttons next previous
 const onNextClick = () => {
   if(currentPageNumber > totalCountPage - 1) {
     setButtonDisabled('disabled')
@@ -106,14 +106,14 @@ const onPreviousClick = () => {
   }
   setCurrentPageNumber(currentPageNumber - 1)
 }
-
+//obj for formatted data
 const andData = {
-  country: 'Albania',
+  country: '',
   averageDeaths: '',
   averageCases:''
 }
 
-//tempdata not used :)
+//get formatted data
 const getDNA = () => {
 
     const countryTemp = data.reduce((acc, item) => {
@@ -152,13 +152,9 @@ const getDNA = () => {
     return arr;
 }
 
-//temp
+
 const dnaData = getDNA()
 
-
-
-
-//table
   return (
     <div className="container" style = {{margin:"25px"}}>
 
