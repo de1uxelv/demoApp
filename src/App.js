@@ -113,7 +113,7 @@ const andData = {
   averageCases:''
 }
 
-//tempdata
+//tempdata not used 
 const getDNA = () => {
 
     const countryTemp = data.reduce((acc, item) => {
